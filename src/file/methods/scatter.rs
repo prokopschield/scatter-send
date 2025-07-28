@@ -1,4 +1,4 @@
-use std::{os::unix::ffi::OsStrExt, path::Path, sync::Arc};
+use std::{os::unix::ffi::OsStrExt, path::Path};
 
 use anyhow::{anyhow, Result};
 use ps_mmap::ReadableMemoryMap;
@@ -11,7 +11,7 @@ impl File {
     /// Scatters the file located in `path`.
     /// # Errors
     /// - TODO. [`anyhow::Result`] is returned for now.
-    pub async fn scatter<P: AsRef<Path> + Send>(path: P, net: Arc<ScatterNet>) -> Result<Self> {
+    pub async fn scatter<P: AsRef<Path> + Send>(path: P, net: ScatterNet) -> Result<Self> {
         let path = path.as_ref();
 
         let name = path
