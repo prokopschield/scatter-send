@@ -3,8 +3,7 @@ use std::time::Duration;
 
 use anyhow::Result;
 use clap::{Parser, Subcommand};
-
-use iroh::NodeId;
+use iroh::EndpointId;
 use ps_base64::base64;
 use scatter_net::{NetConfig, NetState, ScatterNet};
 use scatter_send::File;
@@ -120,5 +119,5 @@ pub enum ScatterSendError {
 #[derive(Serialize, Deserialize)]
 pub struct Ticket {
     pub file: File,
-    pub node_id: NodeId,
+    pub node_id: EndpointId,
 }
